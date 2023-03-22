@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/e03eaf0f95.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bod {
+            background-color: grey;
+        }
+        #form {
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            position: relative;
+            width: 400px;
+            perspective: 28px;
+            background-color: silver;
+            border-radius: 5px;
+        }
+        #roun{
+            border-radius: 10px;
+        }
+        legend {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 20px;
+        }
+        fieldset{
+            border: 0px;
+        }
+        #ustext{
+            font-size: 15px;
+            color: red
+        }
+        #pstext{
+            font-size: 15px;
+            color: red
+        }
+    </style>
+</head>
+<body id="bod">
+    <form id="form">
+        <fieldset>
+            <Legend>Sign In</Legend>
+            <label for="user">Username(5-12 characters):</label>
+            <div id="ustext"></div>
+            <input type="text" required id="user" name="user"  placeholder="xXBelta89XX" maxlength="12" size="49" onblur="checkUsername()"><br><br>
+
+            <label for="pass">Password(9+ characters):</label>
+            <div id="pstext"></div>
+            <input type="password" required id="pass" name="pass" placeholder="6920048jakeis" size="49" onblur="checkPass()"><br><br>
+
+            <label for="user">Phone Number(xxx-xxx-xxxx):</label>
+            <div id="phtext"></div>
+            <input type="tel" required id="call" name="call"  placeholder="234-567-8901" maxlength="12" size="49" onblur="checkPhone()"><br><br>
+            
+            <label for="user">Gmail(______@gmail.com):</label>
+            <div id="gmtext"></div>
+            <input type="email" required id="mail" name="mail"  placeholder="doe@gmail.com" size="49" onblur="checkGmail()"><br><br>
+
+
+        </fieldset>
+        <fieldset>
+            <legend>Bank Information</legend>
+            <label for="user">Card-Holder Name:</label>
+            <div id="natext"></div>
+            <input type="text" required id="nam" name="nam"  placeholder="John Doe" maxlength="25" size="49" onblur="checkName()"><br><br>
+
+            <label for="user">Card-Holder Name:</label>
+            <div id="natext"></div>
+            <input type="radio" required id="nam" name="nam" maxlength="25" size="49" onblur="checkName()"><br><br>
+
+            <label for="prov">Chose your card provider</label><br><br>
+            <input type="radio" id="visa" required name="prov" value="visa">
+            <i class="fa-xl fa-brands fa-cc-visa"></i>
+            <input type="radio" id="master" name="prov" value="master">
+            <i class="fa-xl fa-brands fa-cc-mastercard"></i>
+            <input type="radio" id="disc" name="prov" value="disc">
+            <i class="fa-xl fa-brands fa-cc-discover"></i>
+            <input type="radio" id="merica" name="prov" value="merica">
+            <i class="fa-xl fa-brands fa-cc-amex"></i>
+
+        </fieldset>
+
+        <input type="submit" value="submit" id="roun">
+        <input type="reset" value="reset" id="roun">
+    </form>
+    <script>
+        function checkUsername(){
+            const umsg = document.getElementById('ustext')
+            const val = document.getElementById('user').value
+            const box = document.getElementById('user')
+            console.log(length)
+            if (!val.match(/^\S{5,12}$/)){
+                window.alert(val + " is not a valid username")
+                box.style.borderColor = 'red'
+                umsg.textContent = 'Please edit username'
+            }else{
+                umsg.textContent = ''
+                box.style.borderColor = 'green'
+            }
+        }
+
+        function checkPass(){
+            const pmsg = document.getElementById('pstext')
+            const pal = document.getElementById('pass').value
+            const rox = document.getElementById('pass')
+            if (!pal.match(/^\S{9,}$/)){
+                window.alert(pal + " is not a valid password")
+                rox.style.borderColor = 'red'
+                pmsg.textContent = 'Please edit password'
+            }else{
+                pmsg.textContent = ''
+                rox.style.borderColor = 'green'
+            }
+        }
+
+        function checkPhone(){
+            const pmsg = document.getElementById('phtext')
+            const pal = document.getElementById('call').value
+            const rox = document.getElementById('call')
+            if (!pal.match(/^[2-9]\d{2}-\d{3}-\d{4}$/)){
+                window.alert(pal + " is not a valid phone number")
+                rox.style.borderColor = 'red'
+                pmsg.textContent = 'Please edit password'
+            }else{
+                pmsg.textContent = ''
+                rox.style.borderColor = 'green'
+            }
+        }
+
+        function checkGmail(){
+            const pmsg = document.getElementById('gmtext')
+            const pal = document.getElementById('mail').value
+            const rox = document.getElementById('mail')
+            if (!pal.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/)){
+                window.alert(pal + " is not a valid Gmail")
+                rox.style.borderColor = 'red'
+                pmsg.textContent = 'Please edit password'
+            }else{
+                pmsg.textContent = ''
+                rox.style.borderColor = 'green'
+            }
+        }
+
+        function checkName(){
+            const umsg = document.getElementById('natext')
+            const val = document.getElementById('nam').value
+            const box = document.getElementById('nam')
+            console.log(length)
+            if (!val.match(/^\w{2,25}$/)){
+                window.alert(val + " is not a valid Name(sorry in advance if your name is complex or if your elon musk's child)")
+                box.style.borderColor = 'red'
+                umsg.textContent = 'Please edit username'
+            }else{
+                umsg.textContent = ''
+                box.style.borderColor = 'green'
+            }
+        }
+    </script>
+</body>
+</html>
